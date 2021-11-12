@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color:rgb(240, 9, 9);
+            margin-bottom: 50px;
+
+        }
+        
+    </style>
+    <script>
+        
+		 nroImg = 1;
+        function play(){
+           id = setInterval("chargeimg()",1000);
+        }
+        function pause(){
+             clearInterval(id);
+        }
+        function back(){
+            pause();
+            nroImg = nroImg - 1;
+            if (nroImg < 1) nroImg = 3;       
+            play()
+        
+        }
+        function play(){
+            nroImg++;
+            if (nroImg > 3) nroImg = 1;
+            document.getElementById("slideShow").src = `img/fig0${nroImg}.jpg`;
+
+            id = setTimeout("play()",1000);
+        }
+		
+               
+       
+    </script>
+</head>
+<body onload="play()">
+    
+    <center><h1>Lançamentos 2014 - Sedãs</h1></center>
+
+  <center>  <img src="img/fig01.jpg" id="slideShow" alt="" onmouseenter="pause()" onmouseout="play()">  </center> 
+    
+   
+</body>
+</html>
